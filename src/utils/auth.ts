@@ -9,7 +9,7 @@ import {
 } from 'hono/cookie'
 import type { Context } from 'hono'
 
-export class auth {
+export class Auth {
     static async login(c: Context, id: string) {
         const payload = {
             sub: id,

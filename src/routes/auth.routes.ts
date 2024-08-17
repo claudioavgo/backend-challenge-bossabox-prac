@@ -7,6 +7,8 @@ import { mail } from '../services/mail.services';
 import { randomUUID } from 'node:crypto';
 import { authLinks } from '../db/schema';
 import dayjs from 'dayjs';
+import { Auth } from '../utils/auth';
+import { eq } from 'drizzle-orm';
 
 const MagicLinkRequest = z.object({
     email: z.string()
@@ -46,7 +48,7 @@ const authRoutes = new Hono()
                 code: authLinkCode,
             })
 
-            const authLink = new URL('/auth/authenticate', String(process.env.BASE_URL))
+            const authLink = new URL('/api/v1/auth/authenticate', String(process.env.BASE_URL))
 
             authLink.searchParams.set('code', authLinkCode)
 
@@ -69,7 +71,7 @@ const authRoutes = new Hono()
         })
 
         if (!authLinkFromCode) {
-            throw new Error('Auth link not found.')
+            throw new Error('Auth link not found')
         }
 
         const daysSinceAuthLinkWasCreated = dayjs().diff(
@@ -78,10 +80,14 @@ const authRoutes = new Hono()
         )
 
         if (daysSinceAuthLinkWasCreated > 7) {
-            throw new Error('Auth link expired, please generate a new one.')
+            throw new Error('Auth link expired, please generate a new one')
         }
 
-        authLinkFromCode.userId
+        await Auth.login(c, authLinkFromCode.userId)
+
+        await db.delete(authLinks).where(eq(authLinks.code, code))
+
+        return c.json({ message: "Logged in" }, 200)
     })
 
 export default authRoutes

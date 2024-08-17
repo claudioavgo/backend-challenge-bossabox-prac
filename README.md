@@ -6,11 +6,11 @@ Este projeto consiste na construção de uma API e banco de dados para a aplica�
 
 ## Tecnologias Utilizadas
 
-- **Node.js**: Plataforma de desenvolvimento backend.
-- **Express**: Framework para a criação de APIs em Node.js.
-- **Mongoose**: Biblioteca de modelagem de dados para MongoDB e Node.js.
-- **MongoDB**: Banco de dados NoSQL utilizado para persistência das informações.
-- **Swagger**: Ferramenta para documentação da API.
+- **Bun**: Plataforma de desenvolvimento backend, alternativa mais rápida ao Node.js.
+- **Hono**: Framework ultraleve para a criação de APIs e web applications em Bun.
+- **Drizzle**: ORM simples e eficiente para interação com bancos de dados.
+- **TypeScript**: Superset de JavaScript que adiciona tipagem estática ao código.
+- **PostgreSQL**: Banco de dados relacional utilizado para persistência das informações.
 
 ## Funcionalidades
 

@@ -28,10 +28,6 @@ A API implementa as seguintes funcionalidades:
 4. **Remover Ferramenta por ID**: `DELETE /tools/{id}`  
    Remove uma ferramenta específica com base no seu ID.
 
-## Documentação da API
-
-A documentação completa da API foi gerada utilizando o Swagger e pode ser acessada diretamente no endpoint `/api-docs`.
-
 ## Funcionalidades Bônus
 
 O projeto também conta com as seguintes funcionalidades adicionais:

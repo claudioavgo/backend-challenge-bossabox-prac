@@ -15,7 +15,7 @@ export class Auth {
         setCookie(c, 'session', token, {
             path: '/',
             secure: true,
-            domain: 'localhost',
+            domain: String(process.env.DOMAIN),
             httpOnly: true,
             maxAge: 1000,
             expires: new Date(Date.now() + 60 * 60 * 1000),

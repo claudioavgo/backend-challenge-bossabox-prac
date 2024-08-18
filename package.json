@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
     "test": "jest"

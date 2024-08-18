@@ -1,4 +1,3 @@
-// books.ts
 import { Hono } from 'hono'
 import { db } from '../db/connection'
 import { z } from "zod";
